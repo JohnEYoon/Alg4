@@ -43,10 +43,15 @@ public class Board {
     // sum of Manhattan distances between blocks and goal
     public int manhattan() {
         int manhattan = 0;
-
-    /*********************************
-     * PUT YOUR CODE HERE
-     *********************************/
+		int R, i, j, iR, jR;
+		for(i=0;i<N;i++){
+			for(j=0;j<N;j++){
+				R=tiles[i][j];
+				if(R!=(i*N+(j+1))){
+					R/N=iR;
+					R%N-1=jR;
+					
+		
         return manhattan;   // TODO
     }
 
