@@ -50,19 +50,22 @@ public class Board {
 				if(R!=(i*N+(j+1))){
 					R/N=iR;
 					R%N-1=jR;
-					
-		
+				}
+			}
+		}			
         return manhattan;   // TODO
     }
 
     // is this board the goal board?
     public boolean isGoal() {
-
-    /*********************************
-     * PUT YOUR CODE HERE
-     *********************************/
-     
-        return false;   // TODO
+		int i, j, val=1;
+		for(i=0;i<N;i++){
+			for(j=0;j<N;j++){
+				if(tiles[i][j]!=val)
+					return false;
+			}
+		}
+        return true;   // TODO
     }
 
     private void swap(int[][] blocks, int r1, int c1, int r2, int c2) {
@@ -72,12 +75,11 @@ public class Board {
             throw new IndexOutOfBoundsException("row/col index >= N");
 
         // swap blocks
-
-    /*********************************
-     * PUT YOUR CODE HERE
-     *********************************/
-     
-    }
+    	int temp;
+		temp=blocks[r1][c1];
+		blocks[r1][c1]=blocks[c2][r2];
+		blocks[r2][c2]=temp;
+	}
 
     // a board that is obtained by exchanging two adjacent blocks in the same row
     public Board twin() {
