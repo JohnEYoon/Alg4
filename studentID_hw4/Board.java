@@ -1,4 +1,4 @@
-/**
+/*
  * Homework Assignment #6: "8-Puzzle"
  *
  *  - Board class for solving "8-Puzzle" Programming Assignment
@@ -86,10 +86,15 @@ public class Board {
         int[][] blocks = new int[N][N];
         for (int i = 0; i < N; i++)
             System.arraycopy(tiles[i], 0, blocks[i], 0, tiles[i].length);
+		Random rand=new Random();
+		int r1,c1,r2,c2;
 
-    /*********************************
-     * PUT YOUR CODE HERE
-     *********************************/
+		r1=r2=nextInt(N)+1;
+		do{
+			c1=nextInt(N)+1;
+			c2=c1+1;
+		}while(c2>=N+1);//swap adjacent block at the same row
+		swap(blocks,r1,c1,r2,c2);
      
         return new Board(blocks);
     }
@@ -97,10 +102,9 @@ public class Board {
     // does this board equal y?
     public boolean equals(Object y) {
 
-    /*********************************
-     * PUT YOUR CODE HERE
-     *********************************/
-     
+    	if(y instanceof Board){
+			return this==y;
+ 
         return false;    // TODO
     }
 
@@ -108,13 +112,22 @@ public class Board {
     public Iterable<Board> neighbors() {
 
         Queue<Board> nbrs = new Queue<Board>();
+		
+		int zR,zC;
+		for(int i=0;i<N;i++){
+			for(int j=0;j<N;j++){
+				if(tiles[i][j]==0){
+					zR=i;	
+					zC=j;
+					break;
+				}
+			}
+		}
 
+		nbrs.offer(//
         // put all neighbor boards into the queue
 
-    /*********************************
-     * PUT YOUR CODE HERE
-     *********************************/
-
+		
         return nbrs;
     }
 
